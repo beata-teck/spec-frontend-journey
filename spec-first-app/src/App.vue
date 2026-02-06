@@ -1,24 +1,37 @@
-<script setup>
-import {ref} from 'vue';
-const name = ref('');      
-</script> 
-
 <template>
-  <div>
-    
-    <h2>Enter Your Name</h2>
-    <input v-model="name" placeholder="write Ur name"/>
-    <h2 v-if="name !== ''">Hello {{ name }}!</h2>
-
-
-    
+  <div id="app">
+    <h1>Team Members</h1>
+    <div class="cards-grid">
+      <UserCard name="BTK" role="Frontend Developer" />
+      <UserCard name="John" role="Backend Engineer" />
+      <UserCard name="BOb" role="UI/UX Designer" />
+    </div>
   </div>
 </template>
 
+<script setup>
+import UserCard from './components/UserCard.vue'
+</script>
 
 <style scoped>
-  h2 {
-    color: #42b983;
-  }
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  color: #1f2937;
+  margin-bottom: 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
 </style>
+
 
